@@ -12,6 +12,7 @@ let lastName;
 let employeeID;
 let title;
 let annualSalary;
+let monthlyTotalCost = 0;
 
 function employeeSubmit() {
     console.log('submit!');
@@ -30,7 +31,7 @@ function employeeSubmit() {
         }
         return false;
     }
-    
+
     // push variable values to DOM
     // $('#employeeTableValues').append(`<tr id="employeeTableValues"></tr>`)
     $('#employeeTableValues').append(`<tr>
@@ -44,6 +45,8 @@ function employeeSubmit() {
                     </td>
                 </tr>`)
 
+    calculateMonthlyTotal()
+
     firstName = $('#firstName').val('');
     lastName = $('#lastName').val('');
     employeeID = $('#employeeID').val('');
@@ -54,4 +57,17 @@ function employeeSubmit() {
     console.log(employeeID);
     console.log(title);
     console.log(annualSalary);
+
+    
+}
+
+function calculateMonthlyTotal(){
+console.log('calculate running');
+console.log(parseInt(annualSalary));
+
+console.log(monthlyTotalCost);
+
+monthlyTotalCost += (parseInt(annualSalary) / 12);
+console.log(monthlyTotalCost);
+    $('#monthlyTotalCost').text(monthlyTotalCost);
 }
