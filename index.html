@@ -14,19 +14,22 @@
     <title>jQuery Salary Calculator</title>
 </head>
 <body class="container">
-    <div class="jumbotron">
+    <div class="jumbotron container">
         <h1>Salary Calculator</h1>
     </div>
 <header class="container">
     <h4>Add Employee</h4>
-    <div class="employeeInputs">
+    <div class="employeeInputs input-group"> 
         <input id="firstName" type="text" placeholder="First Name">
         <input id="lastName" type="text" placeholder="Last Name">
         <input id="employeeID" type="text" placeholder="ID">
         <input id="title" type="text" placeholder="Title">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+        </div>
         <input id="annualSalary" type="text" placeholder="Annual Salary">
     </div>
-    <button id="employeeSubmitButton">Submit</button>
+    <button id="employeeSubmitButton" class="btn btn-secondary">Submit</button>
 <main>
     <h4>Employees</h4>
     <div class="employeeTable">

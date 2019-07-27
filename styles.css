@@ -1,11 +1,28 @@
 body {
     border: 1px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(files/pictures/woodbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
 }
-
-.jumbotron {
-    background-color: darkgray
+body  > * {
+    background-color:white;
 }
 
 .redBackground {
-    background-color: red;
+    background-color: red !important;
 }
+
+#employeeSubmitButton {
+    margin: 5px 0px;
+    background-color:#343a40;
+}
+
+
+
+.jumbotron {
+    background-color: #343a40;
+    color: white;
+    font-weight: bold;
+}
+    

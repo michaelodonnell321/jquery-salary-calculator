@@ -8,6 +8,7 @@ function readyNow() {
     $('#employeeTableValues').on('click', '.deleteButton', deleteEmployee)
 }
 
+
 let firstName;
 let lastName;
 let employeeID;
@@ -70,7 +71,7 @@ function calculateMonthlyTotal() {
 
     monthlyTotalCost += (parseInt(annualSalary) / 12);
     console.log(monthlyTotalCost);
-    $('#monthlyTotalCost').text(monthlyTotalCost);
+    $('#monthlyTotalCost').text(monthlyTotalCost.toFixed(2));
 
     if (monthlyTotalCost > 20000) {
         $('#monthlyTotalBackground').addClass('redBackground');
@@ -80,5 +81,5 @@ function calculateMonthlyTotal() {
 function deleteEmployee() {
 console.log('deleted');
 $(this).parent().parent().remove();
-monthlyTotalCost -= $(this).parent()
 }
+
