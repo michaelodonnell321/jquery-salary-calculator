@@ -22,18 +22,33 @@ function employeeSubmit() {
     title = $('#title').val();
     annualSalary = $('#annualSalary').val();
 
+    if(firstName === '' || lastName === '' || employeeID === '' || title === '' || annualSalary === '') {
+        if (confirm('All fields are needed')) {
+            txt = 'OK';
+        } else {
+            txt = 'OK';
+        }
+        return false;
+    }
+    
     // push variable values to DOM
     // $('#employeeTableValues').append(`<tr id="employeeTableValues"></tr>`)
     $('#employeeTableValues').append(`<tr>
-                    <td>Jen</td>
-                    <td>Barber</td>
-                    <td>4521</td>
-                    <td>Team Lead</td>
-                    <td>$80,000</td>
+                    <td>${firstName}</td>
+                    <td>${lastName}</td>
+                    <td>${employeeID}</td>
+                    <td>${title}</td>
+                    <td>$${annualSalary}</td>
                     <td>
                         <button>Delete</button>
                     </td>
                 </tr>`)
+
+    firstName = $('#firstName').val('');
+    lastName = $('#lastName').val('');
+    employeeID = $('#employeeID').val('');
+    title = $('#title').val('');
+    annualSalary = $('#annualSalary').val('');
     console.log(firstName);
     console.log(lastName);
     console.log(employeeID);
