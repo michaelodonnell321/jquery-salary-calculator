@@ -80,4 +80,5 @@ function calculateMonthlyTotal() {
 function deleteEmployee() {
 console.log('deleted');
 $(this).parent().parent().remove();
+monthlyTotalCost -= $(this).parent()
 }
