@@ -5,3 +5,7 @@ body {
 .jumbotron {
     background-color: darkgray
 }
+
+.redBackground {
+    background-color: red;
+}

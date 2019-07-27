@@ -5,6 +5,7 @@ $(document).ready(readyNow);
 function readyNow() {
     console.log('jq sourced');
     $('#employeeSubmitButton').on('click', employeeSubmit)
+    $('#employeeTableValues').on('click', '.deleteButton', deleteEmployee)
 }
 
 let firstName;
@@ -23,7 +24,7 @@ function employeeSubmit() {
     title = $('#title').val();
     annualSalary = $('#annualSalary').val();
 
-    if(firstName === '' || lastName === '' || employeeID === '' || title === '' || annualSalary === '') {
+    if (firstName === '' || lastName === '' || employeeID === '' || title === '' || annualSalary === '') {
         if (confirm('All fields are needed')) {
             txt = 'OK';
         } else {
@@ -41,7 +42,7 @@ function employeeSubmit() {
                     <td>${title}</td>
                     <td>$${annualSalary}</td>
                     <td>
-                        <button>Delete</button>
+                        <button class="deleteButton">Delete</button>
                     </td>
                 </tr>`)
 
@@ -58,16 +59,25 @@ function employeeSubmit() {
     console.log(title);
     console.log(annualSalary);
 
-    
+
 }
 
-function calculateMonthlyTotal(){
-console.log('calculate running');
-console.log(parseInt(annualSalary));
+function calculateMonthlyTotal() {
+    console.log('calculate running');
+    console.log(parseInt(annualSalary));
 
-console.log(monthlyTotalCost);
+    console.log(monthlyTotalCost);
 
-monthlyTotalCost += (parseInt(annualSalary) / 12);
-console.log(monthlyTotalCost);
+    monthlyTotalCost += (parseInt(annualSalary) / 12);
+    console.log(monthlyTotalCost);
     $('#monthlyTotalCost').text(monthlyTotalCost);
+
+    if (monthlyTotalCost > 20000) {
+        $('#monthlyTotalBackground').addClass('redBackground');
+    }
+}
+
+function deleteEmployee() {
+console.log('deleted');
+$(this).parent().parent().remove();
 }
