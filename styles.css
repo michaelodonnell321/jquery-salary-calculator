@@ -9,6 +9,10 @@ body  > * {
     background-color:white;
 }
 
+.yellowBackground {
+    background-color: yellow;
+}
+
 .redBackground {
     background-color: red !important;
 }
