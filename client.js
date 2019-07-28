@@ -25,6 +25,7 @@ function employeeSubmit() {
     employeeID = $('#employeeID').val();
     title = $('#title').val();
     annualSalary = $('#annualSalary').val();
+    percentOfBudget = (((annualSalary / 12) / 20000) * 100).toFixed(2);
 
     // if statement to make sure all inputs are filled
     if (firstName === '' || lastName === '' || employeeID === '' || title === '' || annualSalary === '') {
@@ -44,6 +45,7 @@ function employeeSubmit() {
                     <td>${employeeID}</td>
                     <td>${title}</td>
                     <td class="annualSalary">$${annualSalary}</td>
+                    <td>${percentOfBudget}%</td>
                     <td>
                         <button class="deleteButton">Delete</button>
                     </td>
@@ -108,19 +110,19 @@ function deleteEmployee() {
     // $('#monthlyTotalCost').text(monthlyTotalCost.toFixed(2));
     // console.log(monthlyTotalCost.toFixed(2));
 
-    
+
     // find the salary value using smarter this selector
     let salaryValue = $(this).closest("tr").find(".annualSalary").text();
     console.log(salaryValue);
     // coming up with a 0, make a new string without that
     salaryValue = salaryValue.substring(1);
-    salaryValue = (parseFloat(salaryValue) /12).toFixed(2);
+    salaryValue = (parseFloat(salaryValue) / 12).toFixed(2);
     console.log(salaryValue);
     // recalculate monthly cost
     monthlyTotalCost = (monthlyTotalCost - salaryValue).toFixed(2);
     console.log(monthlyTotalCost);
     if (monthlyTotalCost === -0.00) {
-        monthlyTotalCost  = 0.00
+        monthlyTotalCost = 0.00
     }
     // remove backgrounds if necessary
     if (monthlyTotalCost < 15000) {
@@ -142,7 +144,7 @@ function deleteEmployee() {
     // // pull annual salary by class, use .text as a getter
     // deletedSalary = $('.annualSalary').text();
     // console.log(deletedSalary);
-    
+
     // //if there are no salaries, set monthly budget number to 0 and end
     // if (deletedSalary === '') {
     //     $('#monthlyTotalCost').text(parseInt(0.00));
@@ -171,5 +173,3 @@ function deleteEmployee() {
     // $('#monthlyTotalCost').text(newMonthlyTotalCost);
 
 }
-
-// add td for % of monthly budget
