@@ -14,7 +14,11 @@ body  > * {
 }
 
 .redBackground {
-    background-color: red !important;
+    background-color: red;
+}
+
+.whiteBackground {
+    background-color: white;
 }
 
 #employeeSubmitButton {

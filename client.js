@@ -69,10 +69,15 @@ function calculateMonthlyTotal() {
     console.log(parseInt(annualSalary));
 
     console.log(monthlyTotalCost);
+    if (typeof monthlyTotalCost === "string") {
+        monthlyTotalCost = parseFloat(monthlyTotalCost);
+        console.log(monthlyTotalCost);
+    }
 
-    monthlyTotalCost += (parseInt(annualSalary) / 12);
+    monthlyTotalCost += parseFloat(annualSalary) / 12;
+    monthlyTotalCost = monthlyTotalCost.toFixed(2);
     console.log(monthlyTotalCost);
-    $('#monthlyTotalCost').text(monthlyTotalCost.toFixed(2));
+    $('#monthlyTotalCost').text(monthlyTotalCost);
 
     if (monthlyTotalCost > 20000) {
         $('#monthlyTotalBackground').addClass('redBackground');
@@ -103,38 +108,67 @@ function deleteEmployee() {
     // $('#monthlyTotalCost').text(monthlyTotalCost.toFixed(2));
     // console.log(monthlyTotalCost.toFixed(2));
 
+    
+    // find the salary value using smarter this selector
+    let salaryValue = $(this).closest("tr").find(".annualSalary").text();
+    console.log(salaryValue);
+    // coming up with a 0, make a new string without that
+    salaryValue = salaryValue.substring(1);
+    salaryValue = (parseFloat(salaryValue) /12).toFixed(2);
+    console.log(salaryValue);
+    // recalculate monthly cost
+    monthlyTotalCost = (monthlyTotalCost - salaryValue).toFixed(2);
+    console.log(monthlyTotalCost);
+    if (monthlyTotalCost === -0.00) {
+        monthlyTotalCost  = 0.00
+    }
+    // remove backgrounds if necessary
+    if (monthlyTotalCost < 15000) {
+        $('#monthlyTotalBackground').removeClass('yellowBackground');
+    }
+    if (monthlyTotalCost < 20000) {
+        $('#monthlyTotalBackground').removeClass('redBackground');
+    }
+    // push to DOM
+    $('#monthlyTotalCost').text(monthlyTotalCost);
+
     // remove the parent of the parent of what was clicked, this is the whole line
     $(this).parent().parent().remove();
-    // pull annual salary by class, use .text as a getter
-    deletedSalary = $('.annualSalary').text();
-    console.log(deletedSalary);
-    
-    //if there are no salaries, set monthly budget number to 0 and end
-    if (deletedSalary === '') {
-        $('#monthlyTotalCost').text(parseInt(0.00));
-        $('#monthlyTotalBackground').removeClass('redBackground yellowBackground');
-        return false;
-    }
 
-    // there are potentially many salaries, split them into an array at every $
-    deletedSalarySplit = deletedSalary.split('$');
-    console.log(deletedSalarySplit);
-    // splice the first value off, we are getting a blank string every time
-    console.log(deletedSalarySplit.splice(0,1));
-    console.log(deletedSalarySplit);
-    // for loop to add all the salaries into a new variable
-    for (let j=0; j < deletedSalarySplit.length; j++) {
-        newMonthlyTotalCost += (parseInt(deletedSalarySplit[j] /12).toFixed(2));
-    }
-    console.log(newMonthlyTotalCost);
-    // new value is coming out with a 0 on the front, find all the 0's in the front
-    // and return a new string with them gone
-    while(newMonthlyTotalCost.charAt(0) === '0') {
-        newMonthlyTotalCost = newMonthlyTotalCost.substr(1);
-    }
-    console.log(newMonthlyTotalCost);
-    // push new monthly budget to DOM
-    $('#monthlyTotalCost').text(newMonthlyTotalCost);
+
+    // below method is 90% working, try again later to fix
+
+
+    // // pull annual salary by class, use .text as a getter
+    // deletedSalary = $('.annualSalary').text();
+    // console.log(deletedSalary);
+    
+    // //if there are no salaries, set monthly budget number to 0 and end
+    // if (deletedSalary === '') {
+    //     $('#monthlyTotalCost').text(parseInt(0.00));
+    //     $('#monthlyTotalBackground').removeClass('redBackground yellowBackground');
+    //     return false;
+    // }
+
+    // // there are potentially many salaries, split them into an array at every $
+    // deletedSalarySplit = deletedSalary.split('$');
+    // console.log(deletedSalarySplit);
+    // // splice the first value off, we are getting a blank string every time
+    // console.log(deletedSalarySplit.splice(0,1));
+    // console.log(deletedSalarySplit);
+    // // for loop to add all the salaries into a new variable
+    // for (let j=0; j < deletedSalarySplit.length; j++) {
+    //     newMonthlyTotalCost += (parseInt(deletedSalarySplit[j] /12).toFixed(2));
+    // }
+    // console.log(newMonthlyTotalCost);
+    // // new value is coming out with a 0 on the front, find all the 0's in the front
+    // // and return a new string with them gone
+    // while(newMonthlyTotalCost.charAt(0) === '0') {
+    //     newMonthlyTotalCost = newMonthlyTotalCost.substr(1);
+    // }
+    // console.log(newMonthlyTotalCost);
+    // // push new monthly budget to DOM
+    // $('#monthlyTotalCost').text(newMonthlyTotalCost);
 
 }
 
