@@ -79,20 +79,23 @@ function calculateMonthlyTotal() {
 }
 
 function deleteEmployee() {
-console.log('deleted');
-let deletedSalary;
-console.log($("td").text());
-deletedSalary = $('.annualSalary').text();
-console.log(deletedSalary);
-let deletedSalarySplit = deletedSalary.split('$');
-console.log(deletedSalarySplit);
-let i = deletedSalarySplit.length;
-console.log(i);
-console.log(deletedSalarySplit[i-1]);
-$('#monthlyTotalCost').text(monthlyTotalCost.toFixed(2) - (parseInt(deletedSalarySplit[i - 1])) / 12);
+    console.log('deleted');
+    let deletedSalary;
+    console.log($("td").text());
+    deletedSalary = $('.annualSalary').text();
+    console.log(deletedSalary);
+    let deletedSalarySplit = deletedSalary.split('$');
+    console.log(deletedSalarySplit);
+    let i = deletedSalarySplit.length;
+    console.log(i);
+    console.log(deletedSalarySplit[i - 1]);
+    console.log(monthlyTotalCost);
+    monthlyTotalCost -= (parseInt(deletedSalarySplit[i-1])/12);
+    console.log(monthlyTotalCost);
+    $('#monthlyTotalCost').text(monthlyTotalCost.toFixed(2));
     console.log(monthlyTotalCost.toFixed(2));
 
-$(this).parent().parent().remove();
+    $(this).parent().parent().remove();
 
 }
 
