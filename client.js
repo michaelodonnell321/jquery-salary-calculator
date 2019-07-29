@@ -47,7 +47,7 @@ function employeeSubmit() {
                     <td class="annualSalary">$${annualSalary}</td>
                     <td>${percentOfBudget}%</td>
                     <td>
-                        <button class="deleteButton">Delete</button>
+                        <button class="deleteButton btn btn-secondary">Delete</button>
                     </td>
                 </tr>`)
 

@@ -26,6 +26,17 @@ body  > * {
     background-color:#343a40;
 }
 
+#employeeSubmitButton:hover {
+background-color:black;
+}
+
+.deleteButton {
+    background-color:#343a40;
+}
+
+.deleteButton:hover {
+    background-color:black;
+}
 .jumbotron {
     background-color: #343a40;
     color: white;
