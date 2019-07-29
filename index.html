@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,40 +14,41 @@
 
     <title>jQuery Salary Calculator</title>
 </head>
+
 <body class="container">
     <div class="jumbotron container">
         <h1>Salary Calculator</h1>
     </div>
-<header class="container">
-    <h4>Add Employee</h4>
-    <div class="employeeInputs input-group"> 
-        <input id="firstName" type="text" placeholder="First Name">
-        <input id="lastName" type="text" placeholder="Last Name">
-        <input id="employeeID" type="text" placeholder="ID">
-        <input id="title" type="text" placeholder="Title">
-        <div class="input-group-prepend">
-            <span class="input-group-text">$</span>
+    <header class="container">
+        <h4>Add Employee</h4>
+        <div class="employeeInputs input-group">
+            <input id="firstName" type="text" placeholder="First Name">
+            <input id="lastName" type="text" placeholder="Last Name">
+            <input id="employeeID" type="text" placeholder="ID">
+            <input id="title" type="text" placeholder="Title">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input id="annualSalary" type="text" placeholder="Annual Salary">
         </div>
-        <input id="annualSalary" type="text" placeholder="Annual Salary">
-    </div>
-    <button id="employeeSubmitButton" class="btn btn-secondary">Submit</button>
-<main>
-    <h4>Employees</h4>
-    <div class="employeeTable">
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Annual Salary</th>
-                    <th>% of Budget</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="employeeTableValues">
-                <!-- <tr>
+        <button id="employeeSubmitButton" class="btn btn-secondary">Submit</button>
+        <main>
+            <h4>Employees</h4>
+            <div class="employeeTable">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Annual Salary</th>
+                            <th>% of Budget</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeTableValues">
+                        <!-- <tr>
                     <td>Jen</td>
                     <td>Barber</td>
                     <td>4521</td>
@@ -59,18 +61,19 @@
                     <td colspan="6"></td>
                 </tr>
                 </tr> -->
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="7"></td>
-                </tr>
-            </tfoot>
-        </table>
-        <div id="monthlyTotalBackground">
-            <h4>Total Monthly: $<span id="monthlyTotalCost">0</span></h4>
-        </div>
-    </div>
-</main>
-</header>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="7"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div id="monthlyTotalBackground">
+                    <h4>Total Monthly: $<span id="monthlyTotalCost">0</span></h4>
+                </div>
+            </div>
+        </main>
+    </header>
 </body>
+
 </html>

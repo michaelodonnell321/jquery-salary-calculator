@@ -5,8 +5,9 @@ body {
     background-repeat: no-repeat;
     background-size: auto;
 }
-body  > * {
-    background-color:white;
+
+body>* {
+    background-color: white;
 }
 
 .yellowBackground {
@@ -23,23 +24,23 @@ body  > * {
 
 #employeeSubmitButton {
     margin: 5px 0px;
-    background-color:#343a40;
+    background-color: #343a40;
 }
 
 #employeeSubmitButton:hover {
-background-color:black;
+    background-color: black;
 }
 
 .deleteButton {
-    background-color:#343a40;
+    background-color: #343a40;
 }
 
 .deleteButton:hover {
-    background-color:black;
+    background-color: black;
 }
+
 .jumbotron {
     background-color: #343a40;
     color: white;
     font-weight: bold;
 }
-    
